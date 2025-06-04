@@ -1,0 +1,35 @@
+type StakeUpdate @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  nonce: BigInt! # uint256
+  newAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  logIndex: BigInt! # uint256
+  transactionHash: Bytes!
+}
+
+type StateSynced @entity(immutable: true) {
+  id: Bytes!
+  stateId: BigInt! # uint256
+  contractAddress: Bytes! # address
+  data: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  logIndex: BigInt! # uint256
+  transactionHash: Bytes!
+}
+
+type NewHeaderBlock @entity(immutable: true) {
+  id: Bytes!
+  proposer: Bytes! # address
+  headerBlockId: BigInt! # uint256
+  reward: BigInt! # uint256
+  start: BigInt! # uint256
+  end: BigInt! # uint256
+  root: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  logIndex: BigInt! # uint256
+  transactionHash: Bytes!
+}

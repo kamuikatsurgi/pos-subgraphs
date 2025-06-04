@@ -1,0 +1,67 @@
+specVersion: 1.3.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StakingInfo
+    network: sepolia
+    source:
+      address: "0x5E3111a5d928D24718c1A7897261D0B9087002ed"
+      abi: StakingInfo
+      startBlock: 4692501
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - StakeUpdate
+      abis:
+        - name: StakingInfo
+          file: ./abis/StakingInfo.json
+      eventHandlers:
+        - event: StakeUpdate(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleStakeUpdate
+      file: ./src/staking-info.ts
+  - kind: ethereum
+    name: StateSender
+    network: sepolia
+    source:
+      address: "0x49E307Fa5a58ff1834E0F8a60eB2a9609E6A5F50"
+      abi: StateSender
+      startBlock: 4692505
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - StateSynced
+      abis:
+        - name: StateSender
+          file: ./abis/StateSender.json
+      eventHandlers:
+        - event: StateSynced(indexed uint256,indexed address,bytes)
+          handler: handleStateSynced
+      file: ./src/state-sender.ts
+  - kind: ethereum
+    name: RootChainProxy
+    network: sepolia
+    source:
+      address: "0xbd07D7E1E93c8d4b2a261327F3C28a8EA7167209"
+      abi: RootChainProxy
+      startBlock: 4692504
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - NewHeaderBlock
+      abis:
+        - name: RootChainProxy
+          file: ./abis/RootChainProxy.json
+      eventHandlers:
+        - event: NewHeaderBlock(indexed address,indexed uint256,indexed
+            uint256,uint256,uint256,bytes32)
+          handler: handleNewHeaderBlock
+      file: ./src/root-chain-proxy.ts

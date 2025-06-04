@@ -1,0 +1,14 @@
+{
+  "sepolia": {
+    "StakingInfo": {
+      "address": "0x5E3111a5d928D24718c1A7897261D0B9087002ed",
+      "startBlock": 4692501
+    },
+    "StateSender": {
+      "address": "0x49E307Fa5a58ff1834E0F8a60eB2a9609E6A5F50"
+    },
+    "RootChainProxy": {
+      "address": "0xbd07D7E1E93c8d4b2a261327F3C28a8EA7167209"
+    }
+  }
+}
