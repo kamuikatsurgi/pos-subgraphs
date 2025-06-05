@@ -3,6 +3,12 @@
     "StakingInfo": {
       "address": "0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B",
       "startBlock": 10342572
+    },
+    "StateSender": {
+      "address": "0x28e4F3a7f651294B9564800b2D01f35189A5bFbE"
+    },
+    "RootChainProxy": {
+      "address": "0x86E4Dc95c7FBdBf52e33D563BbDB00823894C287"
     }
   }
 }
