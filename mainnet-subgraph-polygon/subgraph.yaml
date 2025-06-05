@@ -1,0 +1,98 @@
+specVersion: 1.3.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StakingInfo
+    network: mainnet
+    source:
+      address: "0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B"
+      abi: StakingInfo
+      startBlock: 10342572
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - ClaimFee
+        - ClaimRewards
+        - ConfirmAuction
+        - DelegatorClaimedRewards
+        - DelegatorRestaked
+        - DelegatorUnstaked
+        - DynastyValueChange
+        - Jailed
+        - OwnershipTransferred
+        - ProposerBonusChange
+        - Restaked
+        - RewardUpdate
+        - ShareBurned
+        - ShareMinted
+        - SignerChange
+        - Slashed
+        - StakeUpdate
+        - Staked
+        - StartAuction
+        - ThresholdChange
+        - TopUpFee
+        - UnJailed
+        - UnstakeInit
+        - Unstaked
+        - UpdateCommissionRate
+      abis:
+        - name: StakingInfo
+          file: ./abis/StakingInfo.json
+      eventHandlers:
+        - event: ClaimFee(indexed address,indexed uint256)
+          handler: handleClaimFee
+        - event: ClaimRewards(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleClaimRewards
+        - event: ConfirmAuction(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleConfirmAuction
+        - event: DelegatorClaimedRewards(indexed uint256,indexed address,indexed uint256)
+          handler: handleDelegatorClaimedRewards
+        - event: DelegatorRestaked(indexed uint256,indexed address,indexed uint256)
+          handler: handleDelegatorRestaked
+        - event: DelegatorUnstaked(indexed uint256,indexed address,uint256)
+          handler: handleDelegatorUnstaked
+        - event: DynastyValueChange(uint256,uint256)
+          handler: handleDynastyValueChange
+        - event: Jailed(indexed uint256,indexed uint256,indexed address)
+          handler: handleJailed
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ProposerBonusChange(uint256,uint256)
+          handler: handleProposerBonusChange
+        - event: Restaked(indexed uint256,uint256,uint256)
+          handler: handleRestaked
+        - event: RewardUpdate(uint256,uint256)
+          handler: handleRewardUpdate
+        - event: ShareBurned(indexed uint256,indexed address,indexed uint256,uint256)
+          handler: handleShareBurned
+        - event: ShareMinted(indexed uint256,indexed address,indexed uint256,uint256)
+          handler: handleShareMinted
+        - event: SignerChange(indexed uint256,uint256,indexed address,indexed address,bytes)
+          handler: handleSignerChange
+        - event: Slashed(indexed uint256,indexed uint256)
+          handler: handleSlashed
+        - event: StakeUpdate(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleStakeUpdate
+        - event: Staked(indexed address,indexed uint256,uint256,indexed uint256,uint256,uint256,bytes)
+          handler: handleStaked
+        - event: StartAuction(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleStartAuction
+        - event: ThresholdChange(uint256,uint256)
+          handler: handleThresholdChange
+        - event: TopUpFee(indexed address,indexed uint256)
+          handler: handleTopUpFee
+        - event: UnJailed(indexed uint256,indexed address)
+          handler: handleUnJailed
+        - event: UnstakeInit(indexed address,indexed uint256,uint256,uint256,indexed uint256)
+          handler: handleUnstakeInit
+        - event: Unstaked(indexed address,indexed uint256,uint256,uint256)
+          handler: handleUnstaked
+        - event: UpdateCommissionRate(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleUpdateCommissionRate
+      file: ./src/staking-info.ts

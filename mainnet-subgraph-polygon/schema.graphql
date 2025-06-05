@@ -1,0 +1,251 @@
+type ClaimFee @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  fee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimRewards @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  amount: BigInt! # uint256
+  totalAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ConfirmAuction @entity(immutable: true) {
+  id: Bytes!
+  newValidatorId: BigInt! # uint256
+  oldValidatorId: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegatorClaimedRewards @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  user: Bytes! # address
+  rewards: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegatorRestaked @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  user: Bytes! # address
+  totalStaked: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegatorUnstaked @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  user: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DynastyValueChange @entity(immutable: true) {
+  id: Bytes!
+  newDynasty: BigInt! # uint256
+  oldDynasty: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Jailed @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  exitEpoch: BigInt! # uint256
+  signer: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProposerBonusChange @entity(immutable: true) {
+  id: Bytes!
+  newProposerBonus: BigInt! # uint256
+  oldProposerBonus: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Restaked @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  amount: BigInt! # uint256
+  total: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RewardUpdate @entity(immutable: true) {
+  id: Bytes!
+  newReward: BigInt! # uint256
+  oldReward: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ShareBurned @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  user: Bytes! # address
+  amount: BigInt! # uint256
+  tokens: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ShareMinted @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  user: Bytes! # address
+  amount: BigInt! # uint256
+  tokens: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SignerChange @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  nonce: BigInt! # uint256
+  oldSigner: Bytes! # address
+  newSigner: Bytes! # address
+  signerPubkey: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Slashed @entity(immutable: true) {
+  id: Bytes!
+  nonce: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type StakeUpdate @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  nonce: BigInt! # uint256
+  newAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Staked @entity(immutable: true) {
+  id: Bytes!
+  signer: Bytes! # address
+  validatorId: BigInt! # uint256
+  nonce: BigInt! # uint256
+  activationEpoch: BigInt! # uint256
+  amount: BigInt! # uint256
+  total: BigInt! # uint256
+  signerPubkey: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type StartAuction @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  amount: BigInt! # uint256
+  auctionAmount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ThresholdChange @entity(immutable: true) {
+  id: Bytes!
+  newThreshold: BigInt! # uint256
+  oldThreshold: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TopUpFee @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  fee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UnJailed @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  signer: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UnstakeInit @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  validatorId: BigInt! # uint256
+  nonce: BigInt! # uint256
+  deactivationEpoch: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Unstaked @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  validatorId: BigInt! # uint256
+  amount: BigInt! # uint256
+  total: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateCommissionRate @entity(immutable: true) {
+  id: Bytes!
+  validatorId: BigInt! # uint256
+  newCommissionRate: BigInt! # uint256
+  oldCommissionRate: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
